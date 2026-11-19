@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuessNumber</title>
+    <!-- Bootstrap 5.3 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+
+            <div class="gameBox">
+
+                <h2>Guess the Number</h2>
+
+                <input type="text" id="guessInput">
+
+                <button onclick="checkNumber()">Click!</button>
+
+                <h3 id="result">Right / Wrong</h3>
+
+                <h3 id="mark">Score</h3>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var Result = document.getElementById("result");
+    var Mark = document.getElementById("mark");
+
+    var random = Math.floor(Math.random() * 10) + 1;
+    var totalMark = 10;
+
+    function checkNumber() {
+
+        var guessInput = document.getElementById("guessInput").value;
+
+        if (guessInput == random) {
+            Result.textContent = "Right !";
+            alert("You WON Your Score Is " + totalMark);
+        }
+        else {
+            totalMark = totalMark - 1;
+            Mark.textContent = "Your Score= " + totalMark;
+            Result.textContent = "Wrong !";
+        }
+    }
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
